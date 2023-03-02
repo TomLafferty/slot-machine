@@ -1,6 +1,7 @@
 import random
 
 
+
 MAX_LINES = 5
 MAX_DEP = 100
 MAX_BET = 50
@@ -48,8 +49,13 @@ def get_bet():
 def main():
     balance = deposit()
     lines = get_num_of_lines()
-    bet = get_bet()
-    total_bet = bet * lines
+    while True:
+        bet = get_bet()
+        total_bet = bet * lines
+        if total_bet > balance:
+            print(f"Not enough money! Your current balance is ${balance}.")
+        else:
+            break
     print(f"You are all set for ${bet} on {lines} lines. All in for ${total_bet}. Good Luck!")
 
 main()
